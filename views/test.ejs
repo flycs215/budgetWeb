@@ -1,0 +1,40 @@
+<html>
+    <head>
+        
+    </head>
+    <body>
+        <p id="timezones"></p>
+        <input type="button", id="execute" value="execute" />
+        <!-- <form>
+            <select name="timezone">
+                <option value="Asia/Seoul">asia/seoul</option>
+                <option value="America/New_York">America/New_york</option>
+            </select>
+            <select name="format">
+                <option value="Y-m-d H:i:s">Y-m-d H:i:s</option>
+                <option value="Y-m-d">Y-m-d</option>
+            </select>
+        </form> -->
+        <input type="button" id="execute" value="execute" />
+        <script src="https://code.jquery.com/jquery-3.5.0.js"></script>
+        <script>
+            $('#execute').click(function(){
+                $.ajax({
+                    url:'javascripts/testJson.json',
+                    dataType: 'json',
+                    success: function(data){
+                        var str = '';
+                        for(var name in data){
+                            str += '<li>' + name + '<li>';
+                        }
+                        $('#timezones').html('<ul>'+str+'</ul>');
+
+                    }
+
+
+                })
+            })
+        </script>
+    </body>
+
+</html>

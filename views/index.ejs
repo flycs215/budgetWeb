@@ -8,6 +8,20 @@
         <!-- <script src="javascripts/app.js"></script> -->
         <script src="https://code.jquery.com/jquery-3.5.0.js"></script>
         <title>Budgety</title>
+        <script>
+            function deleteItem(itemId) {
+                $.ajax({
+                    type: "POST",
+                    url: "/api/delete",
+                    data: {id: itemId},
+                    success: function() {
+                        alert("성공");
+                        $("#row-"+itemId).remove();
+                        //delete from from the table
+                    }
+                });
+            }
+        </script>
     </head>
     <body>
         
@@ -66,13 +80,13 @@
                     
                     <% for(var i = 0; i < user_List.length; i++){ %> 
                         <% if('inc' == user_List[i].type){%>
-                            <div class="income__list">
-                                <div class="item clearfix" id="income-0">
+                            <div class="income__list" id="row-<%= user_List[i].id %>">
+                                <div class="item clearfix" id="income-<%= i %>">
                                     <div class="item__description"><%= user_List[i].description%></div>
                                     <div class="right clearfix">
                                         <div class="item__value">+ <%= user_List[i].value%></div>
                                         <div class="item__delete">
-                                            <button class="item__delete--btn"><i class="ion-ios-close-outline"></i></button>
+                                            <button class="item__delete--btn" onclick="deleteItem('<%= user_List[i].id %>');"><i class="ion-ios-close-outline"></i></button>
                                             
                                             <script>
                                                 

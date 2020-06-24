@@ -18,7 +18,7 @@ router.get('/test', function(req, res, next) {
 
 // GET home page.
 router.get('/', function(req, res) {
-  res.redirect('/control');
+  res.redirect('/api');
 });
 
 module.exports = router;

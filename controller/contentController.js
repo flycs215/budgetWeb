@@ -1,4 +1,4 @@
-var User = require('../models/usermodule.js');
+var itemData = require('../models/itemData.js');
 var bodyParser = require('body-parser');
 var async = require('async');
 
@@ -8,12 +8,12 @@ exports.getData = function (req, res, next) {
 
     async.parallel({
         list_user: function (callback) {
-            User.find()
+            itemData.find()
                 .exec(callback)
         },
 
         list_user2: function (callback) {
-            User.find()
+            itemData.find()
                 .exec(callback)
         },
 
@@ -152,7 +152,7 @@ exports.saveData = [
         // data.push(allItems);
         // console.log(data);
 
-        var user = new User(
+        var user = new itemData(
             {
 
                 type: req.body.add_type,

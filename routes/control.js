@@ -9,7 +9,7 @@ var bodyParser = require('body-parser');
 router.get('/', content_controller.getData);
 
 // POST request for creating Book.
-router.post('/', content_controller.saveData);
+// router.post('/', content_controller.saveData);
 
 /* 
 router.post('/', function(req, res, next){

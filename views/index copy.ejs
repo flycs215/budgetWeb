@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:100,300,400,600" rel="stylesheet" type="text/css">
+    <link href="http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css" rel="stylesheet" type="text/css">
+    <link type="text/css" rel="stylesheet" href="stylesheets/style.css">
+    <!-- <script src="javascripts/app.js"></script> -->
+    <script src="https://code.jquery.com/jquery-3.5.0.js"></script>
+    <title>Budgety</title>
+    <script>
+       
+
+            // $('.item__delete--btn').on('click', function(itemId){
+            //     $.ajax({
+            //         type: "POST",
+            //         url: "/api/delete",
+            //         data: {id: itemId},
+            //         success: function() {
+            //             alert("delete Success");
+            //             $("#row-"+itemId).remove();
+            //             //delete from from the table
+            //         }
+            //     });
+            // })
+
+            // Delete button-Success!
+            // function deleteItem(itemId) {
+            //     $.ajax({
+            //         type: "POST",
+            //         url: "/api/delete",
+            //         data: {id: itemId},
+            //         success: function() {
+            //             alert("delete Success");
+            //             $("#row-"+itemId).remove();
+            //             //delete from from the table
+            //         }
+            //     });
+            // }
+
+            // function addItem(typeItem, descriptionItem, valueItem){
+            //     $.ajax({
+            //         type: "POST",
+            //         url: "/api/add",
+            //         data: {
+            //             type: typeItem,
+            //             description: descriptionItem,
+            //             value: valueItem
+            //         },
+            //         success: function() {
+            //             alert("add Success")
+            //             $("#row-"+itemId).
+            //         }
+            //         //add item and 
+            //     })
+            // }
+    </script>
+</head>
+
+<body>
+
+    <div class="top">
+        <div class="budget">
+            <div class="budget__title">
+                Availables Budget in </span>: <% console.log(user_List2); %>
+                <script></script>
+
+            </div>
+
+            <div class="budget__value">+ 2,345.64</div>
+
+            <div class="budget__income clearfix">
+                <div class="budget__income--text">Income</div>
+                <div class="right">
+                    <div class="budget__income--value">+ 4,300.00</div>
+                    <div class="budget__income--percentage">&nbsp;</div>
+                </div>
+            </div>
+
+            <div class="budget__expenses clearfix">
+                <div class="budget__expenses--text">Expenses</div>
+                <div class="right clearfix">
+                    <div class="budget__expenses--value">- 1,954.36</div>
+                    <div class="budget__expenses--percentage">45%</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+    <div class="bottom">
+        <div class="add">
+
+
+            <div class="add__container" method="post">
+                <select name="add_type" class="add__type">
+                    <option value="inc" selected>+</option>
+                    <option value="exp">-</option>
+                </select>
+                <input type="text" name="add_description" class="add__description" placeholder="Add description">
+                <input type="number" name="add_value" class="add__value" placeholder="Value">
+                <button type="submit" class="add__btn"><i class="ion-ios-checkmark-outline"></i></button>
+
+            </div>
+
+        </div>
+
+        <div class="container clearfix">
+
+
+            <div class="income">
+                <h2 class="icome__title">Income</h2>
+                <div class="income__list">
+
+                    <!-- <div class="item clearfix" id="income-0">
+                                    <div class="item__description">cafe</div>
+                                    <div class="right clearfix">
+                                        <div class="item__value">+ 3,213</div>
+                                        <div class="item__delete">
+                                            <button class="item__delete--btn"><i class="ion-ios-close-outline"></i></button>
+                                    
+                                        </div>
+                                    </div>
+                                </div> -->
+
+                </div>
+            </div>
+
+
+
+            <div class="expenses">
+                <h2 class="expenses__title">Expenses</h2>
+                <div class="expenses__list">
+
+                    <!-- <div class="item clearfix" id="expense-0">
+                                    <div class="item__description">Apartment rent</div>
+                                    <div class="right clearfix">
+                                        <div class="item__value">- 900.00</div>
+                                        <div class="item__percentage">21%</div>
+                                        <div class="item__delete">
+                                            <button class="item__delete--btn"><i class="ion-ios-close-outline"></i></button>
+                                        </div>
+                                    </div>
+                                </div> -->
+
+                </div>
+            </div>
+
+
+        </div>
+
+        <!-- Success! -->
+        <!-- <div class="container clearfix">
+
+                
+                <div class="income">
+                    <h2 class="icome__title">Income</h2>
+                    
+                    <% for(var i = 0; i < user_List.length; i++){ %> 
+                        <% if('inc' == user_List[i].type){%>
+                            <div class="income__list" id="row-<%= user_List[i].id %>">
+                                <div class="item clearfix" id="income-<%= i %>">
+                                    <div class="item__description"><%= user_List[i].description%></div>
+                                    <div class="right clearfix">
+                                        <div class="item__value">+ <%= user_List[i].value%></div>
+                                        <div class="item__delete">
+                                            <button class="item__delete--btn" onclick="deleteItem('<%= user_List[i].id %>');"><i class="ion-ios-close-outline"></i></button>
+                                    
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        <%}%>
+                    <% } %>
+                </div>
+              
+                
+                
+                <div class="expenses">
+                    <h2 class="expenses__title">Expenses</h2>
+                    <% for(var i = 0; i < user_List.length; i++){ %> 
+                        <% if('exp'==user_List[i].type){%>
+                            <div class="expenses__list">
+                                <div class="item clearfix" id="expense-0">
+                                    <div class="item__description"><%= user_List[i].description%></div>
+                                    <div class="right clearfix">
+                                        <div class="item__value">- <%= user_List[i].value%></div>
+                                        <div class="item__percentage">21%</div>
+                                        <div class="item__delete">
+                                            <button class="item__delete--btn"><i class="ion-ios-close-outline"></i></button>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                        <%}%>
+                    <% } %>
+                </div>
+
+
+            </div> -->
+
+    </div>
+
+
+</body>
+
+</html>
